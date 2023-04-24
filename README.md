@@ -8,7 +8,7 @@ A web UI clone of [ChatGPT](https://chat.openai.com/) app using React.js and Nex
 - TailwindCSS
 
 ## Screenshots
-*Coming soon...*
+![Screenshot](doc/screenshot1.png)
 
 ## Stack
 - [TypeScript](https://www.typescriptlang.org/) - JavaScript with syntax for types
