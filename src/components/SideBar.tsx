@@ -1,6 +1,18 @@
-import { userChatList, userName, userPicUrl } from "@/config";
+"use client";
+import { useEffect } from "react";
+import { openAiHelpLink, userChatList, userName, userPicUrl } from "@/config";
 import Image from "next/image";
-import { FiPlus, FiMessageSquare, FiUser, FiMoreHorizontal } from "react-icons/fi";
+import {
+  FiPlus,
+  FiMessageSquare,
+  FiUser,
+  FiMoreHorizontal,
+  FiTrash2,
+  FiSettings,
+  FiLogOut,
+  FiExternalLink,
+} from "react-icons/fi";
+import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 
 export function SideBar() {
   return (
@@ -44,11 +56,53 @@ export function SideBar() {
             </span>
           </a>
           <div className="relative">
-            <button className="flex w-full items-center gap-2.5 rounded-md py-3 px-3 text-sm transition-colors duration-200 hover:bg-[#343541] ui-open:bg-gray-800">
-              <Image src={userPicUrl} width={17} height={17} alt="User" />
-              <div className="grow text-left text-white">{userName}</div>
-              <FiMoreHorizontal />
-            </button>
+            <DropdownMenu.Root>
+              <DropdownMenu.Trigger asChild>
+                <button className="flex w-full items-center gap-2.5 rounded-md p-3 text-sm transition-colors duration-200 hover:bg-[#343541]">
+                  <Image src={userPicUrl} width={17} height={17} alt="User" />
+                  <div className="grow text-left text-white">{userName}</div>
+                  <FiMoreHorizontal />
+                </button>
+              </DropdownMenu.Trigger>
+
+              <DropdownMenu.Portal>
+                <DropdownMenu.Content className="bg-[#050509] w-full rounded-md overflow-hidden text-sm">
+                  <DropdownMenu.Item className="py-1 focus:outline-none">
+                    <a
+                      href={openAiHelpLink}
+                      target="_blank"
+                      className="flex gap-3 items-center cursor-pointer p-3 transition-colors duration-200 hover:bg-gray-700"
+                    >
+                      <FiExternalLink /> Help & FAQ
+                    </a>
+                  </DropdownMenu.Item>
+                  <DropdownMenu.Item className="py-1 border-t border-white/20 focus:outline-none">
+                    <a
+                      href=""
+                      className="flex gap-3 items-center cursor-pointer p-3 transition-colors duration-200 hover:bg-gray-700"
+                    >
+                      <FiTrash2 /> Clear conversations
+                    </a>
+                  </DropdownMenu.Item>
+                  <DropdownMenu.Item className="py-1 border-b border-white/20 focus:outline-none">
+                    <a
+                      href=""
+                      className="flex gap-3 items-center cursor-pointer p-3 transition-colors duration-200 hover:bg-gray-700"
+                    >
+                      <FiSettings /> Settings
+                    </a>
+                  </DropdownMenu.Item>
+                  <DropdownMenu.Item className="py-1 focus:outline-none">
+                    <a
+                      href="https://github.com/wolney-fo"
+                      className="flex gap-3 items-center cursor-pointer p-3 transition-colors duration-200 hover:bg-gray-700"
+                    >
+                      <FiLogOut /> Log out
+                    </a>
+                  </DropdownMenu.Item>
+                </DropdownMenu.Content>
+              </DropdownMenu.Portal>
+            </DropdownMenu.Root>
           </div>
         </div>
       </nav>

@@ -1,4 +1,5 @@
 import { SideBar } from "@/components/SideBar";
+import { chatGPTReleaseNotesUrl } from "@/config";
 import { FiSun, FiZap, FiAlertTriangle } from "react-icons/fi";
 
 export default function Home() {
@@ -84,7 +85,7 @@ export default function Home() {
             <span className="text-center text-xs text-white/50 mb-3">
               <a
                 className="underline"
-                href="https://help.openai.com/en/articles/6825453-chatgpt-release-notes"
+                href={chatGPTReleaseNotesUrl}
                 target="_blank"
               >
                 ChatGPT Mar 23 Version
