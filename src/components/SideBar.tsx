@@ -4,8 +4,8 @@ import { FiPlus, FiUser, FiMoreHorizontal } from "react-icons/fi";
 
 export function SideBar() {
   return (
-    <aside className="w-64 bg-[#202123] items-start">
-      <nav className="flex h-full flex-1 flex-col p-2">
+    <aside className="w-80 bg-[#202123] items-start p-2">
+      <nav className="flex h-full w-full flex-1 flex-col">
         <a className="flex p-3 items-center gap-3 transition-colors duration-200 text-white cursor-pointer text-sm rounded-md border border-white/20 hover:bg-gray-500/10 shrink-0">
           <FiPlus />
           <span>New chat</span>
